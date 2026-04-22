@@ -55,87 +55,167 @@
           <div class="progress-step">4. Review & Submit</div>
         </div>
       </div>
+    </main>
+  </body>
+</html>
 
-      <div class="form-container">
-        <div class="form-section">
-          <h3>Project Information</h3>
-          <div class="form-grid">
-            <div class="form-group">
-              <label>HLD Title</label>
-              <input
-                type="text"
-                id="hld-title"
-                placeholder="Enter descriptive title"
-              />
-            </div>
-            <div class="form-group">
-              <label>Description</label>
-              <textarea
-                id="hld-description"
-                rows="3"
-                placeholder="Brief description of the project"
-              ></textarea>
-            </div>
-            <div class="form-group">
-              <label>HLD Type</label>
-              <select id="hld-type">
-                <option value="">Select type...</option>
-                <option value="ERP">ERP</option>
-                <option value="Infrastructure">Infrastructure</option>
-                <option value="Non-ERP">Non-ERP</option>
-              </select>
-            </div>
-            <div class="form-group">
-              <label>Landscape Type</label>
-              <select id="landscape-type">
-                <option value="">Select landscape...</option>
-                <option value="Enterprise Cloud">Enterprise Cloud</option>
-                <option value="On-Premise">On-Premise</option>
-                <option value="SaaS">SaaS</option>
-              </select>
-            </div>
-            <div class="form-group">
-              <label>Business Division</label>
-              <select id="business-division">
-                <option value="">Select division...</option>
-                <option value="Upstream Division">Upstream Division</option>
-                <option value="Downstream Division">Downstream Division</option>
-                <option value="Retail Division">Retail Division</option>
-                <option value="Gas & New Energy Division">
-                  Gas & New Energy Division
-                </option>
-                <option value="Corporate Functions">Corporate Functions</option>
-              </select>
-            </div>
-            <div class="form-group">
-              <label>Workload Type</label>
-              <select id="workload-type">
-                <option value="">Select workload...</option>
-                <option value="New Development">New Development</option>
-                <option value="Enhancement">Enhancement</option>
-                <option value="Rollout">Rollout</option>
-              </select>
-            </div>
-          </div>
+<div class="form-container">
+  <!-- Section 1: Project Information -->
+  <div class="form-section">
+    <h3>Project Information</h3>
+    <div class="form-grid">
+      <div class="form-group">
+        <label>HLD Title</label>
+        <input
+          type="text"
+          id="hld-title"
+          placeholder="Enter descriptive title"
+        />
+      </div>
+      <div class="form-group">
+        <label>Description</label>
+        <textarea
+          id="hld-description"
+          rows="3"
+          placeholder="Brief description of the project"
+        ></textarea>
+      </div>
+      <div class="form-group">
+        <label>HLD Type</label>
+        <select id="hld-type">
+          <option value="">Select type...</option>
+          <option value="ERP">ERP</option>
+          <option value="Infrastructure">Infrastructure</option>
+          <option value="Non-ERP">Non-ERP</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label>Landscape Type</label>
+        <select id="landscape-type">
+          <option value="">Select landscape...</option>
+          <option value="Enterprise Cloud">Enterprise Cloud</option>
+          <option value="On-Premise">On-Premise</option>
+          <option value="SaaS">SaaS</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label>Business Division</label>
+        <select id="business-division">
+          <option value="">Select division...</option>
+          <option value="Upstream Division">Upstream Division</option>
+          <option value="Downstream Division">Downstream Division</option>
+          <option value="Retail Division">Retail Division</option>
+          <option value="Gas & New Energy Division">
+            Gas & New Energy Division
+          </option>
+          <option value="Corporate Functions">Corporate Functions</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label>Workload Type</label>
+        <select id="workload-type">
+          <option value="">Select workload...</option>
+          <option value="New Development">New Development</option>
+          <option value="Enhancement">Enhancement</option>
+          <option value="Rollout">Rollout</option>
+        </select>
+      </div>
+    </div>
+  </div>
+</div>
 
-          <div class="ai-suggestions">
-            <div class="ai-icon">🤖</div>
-            <div class="suggestion-text">
-              <strong>AI Suggestion:</strong> Consider using "PETRONAS-" prefix
-              for enterprise applications
-            </div>
+<!-- Section 2: New Development - Auto Parent ID (FR-05) -->
+<div id="new-dev-section" class="form-section" style="display: none">
+  <div class="section-header-row">
+    <h3>🆕 New Parent HLD</h3>
+    <span class="badge-auto">Auto-Generated</span>
+  </div>
+  <div class="new-parent-box">
+    <div class="new-parent-box-inner">
+      <div class="new-parent-id-row">
+        <span class="label-muted">Assigned Parent ID</span>
+        <span class="parent-id-value" id="generated-parent-id"></span>
+      </div>
+      <p class="new-parent-desc">
+        This New Development request will become a <strong>parent HLD</strong>.
+        Future Enhancement and Rollout requests can reference this ID for
+        version control and architectural lineage.
+      </p>
+      <div class="lineage-diagram">
+        <div class="lineage-node parent-node">
+          <span class="node-icon">📋</span>
+          <span>This HLD (Parent)</span>
+        </div>
+        <div class="lineage-connector">↓</div>
+        <div class="lineage-node child-node">
+          <span class="node-icon">🔄</span>
+          <span>Future Enhancement / Rollout HLDs</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Section 3: Enhancement/Rollout - Parent Selection (FR-06, FR-07) -->
+<div id="parent-hld-section" class="form-section" style="display: none">
+  <div class="section-header-row">
+    <h3>🔗 Parent HLD Selection</h3>
+    <span class="badge-required">Required</span>
+  </div>
+  <p class="section-desc">
+    Enhancement and Rollout requests must be linked to an existing approved
+    parent HLD for versioning control.
+  </p>
+
+  <div class="parent-search-wrap">
+    <div class="form-group">
+      <label>Search Approved Parent HLDs</label>
+      <input
+        type="text"
+        id="parent-search"
+        placeholder="Search by title, ID, division, or keywords..."
+      />
+      <span class="search-hint"
+        >💡 Try: "Customer Portal", "Supply Chain", "Mobile", or a division
+        name</span
+      >
+    </div>
+    <div id="search-results" class="search-results-dropdown"></div>
+  </div>
+
+  <div
+    id="selected-parent-display"
+    class="selected-parent-display"
+    style="display: none"
+  >
+    <div class="selected-parent-header">
+      <span>✅ Selected Parent HLD</span>
+      <button type="button" class="btn-change" onclick="clearParentSelection()">
+        Change
+      </button>
+    </div>
+    <div id="selected-parent-card"></div>
+  </div>
+
+  <div id="relationship-preview" style="display: none"></div>
+</div>
+
+        <!-- AI Suggestions -->
+        <div class="ai-suggestions" id="ai-suggestions">
+          <div class="ai-icon">🤖</div>
+          <div class="suggestion-text">
+            <strong>AI Suggestion:</strong> Consider using "PETRONAS-" prefix for enterprise applications
           </div>
         </div>
 
+        <!-- Section 4: TOE Authoring Method -->
         <div class="form-section">
           <h3>TOE Authoring Method</h3>
           <div class="toe-method-selection">
             <div class="method-card" data-method="diagram">
               <div class="method-icon">📊</div>
               <h4>Diagram-Based</h4>
-              <p>
-                Upload architecture diagram for AI-assisted component extraction
-              </p>
+              <p>Upload architecture diagram for AI-assisted component extraction</p>
               <div class="method-features">
                 <span class="feature">✓ AI Component Detection</span>
                 <span class="feature">✓ Auto-Classification</span>
@@ -155,16 +235,10 @@
           </div>
         </div>
 
+        <!-- Form Actions -->
         <div class="form-actions">
-          <button
-            class="btn-secondary"
-            onclick="window.location.href = 'index.html'"
-          >
-            Cancel
-          </button>
-          <button class="btn-primary" onclick="nextStep()">
-            Continue to TOE Authoring
-          </button>
+          <button class="btn-secondary" onclick="window.location.href='index.html'">Cancel</button>
+          <button class="btn-primary" id="btn-continue" disabled onclick="nextStep()">Continue to TOE Authoring</button>
         </div>
       </div>
     </main>

@@ -119,3 +119,122 @@ const mockUsers = {
 
 // Simulated AI processing delays
 const aiProcessingTime = 1500; // 1.5 seconds
+
+// ── Approved Parent HLDs for Enhancement/Rollout selection (FR-06) ──
+
+const approvedParentHLDs = [
+  {
+    id: "HLD-2023-001",
+    parentId: "PARENT-2023-001",
+    title: "PETRONAS Customer Portal Platform",
+    type: "ERP",
+    landscape: "Enterprise Cloud",
+    division: "Retail Division",
+    status: "Approved",
+    approvedDate: "2023-08-15",
+    author: "Sarah Chen",
+    description:
+      "Core customer portal providing authentication, profile management, and service access",
+    version: "1.0",
+    childCount: 2,
+  },
+  {
+    id: "HLD-2023-015",
+    parentId: "PARENT-2023-015",
+    title: "Supply Chain Management System",
+    type: "ERP",
+    landscape: "Enterprise Cloud",
+    division: "Upstream Division",
+    status: "Approved",
+    approvedDate: "2023-09-22",
+    author: "Ahmad Rahman",
+    description:
+      "Integrated supply chain management with vendor portal and procurement workflows",
+    version: "2.1",
+    childCount: 5,
+  },
+  {
+    id: "HLD-2023-028",
+    parentId: "PARENT-2023-028",
+    title: "PETRONAS Mobile Field Operations",
+    type: "Infrastructure",
+    landscape: "SaaS",
+    division: "Downstream Division",
+    status: "Approved",
+    approvedDate: "2023-10-10",
+    author: "Lisa Wong",
+    description:
+      "Mobile platform for field operations, maintenance scheduling, and asset tracking",
+    version: "1.5",
+    childCount: 1,
+  },
+  {
+    id: "HLD-2023-042",
+    parentId: "PARENT-2023-042",
+    title: "Enterprise Analytics Platform",
+    type: "Non-ERP",
+    landscape: "Enterprise Cloud",
+    division: "Corporate Functions",
+    status: "Approved",
+    approvedDate: "2023-11-05",
+    author: "David Kumar",
+    description:
+      "Centralized analytics platform with data lake, reporting, and business intelligence",
+    version: "1.0",
+    childCount: 0,
+  },
+  {
+    id: "HLD-2024-003",
+    parentId: "PARENT-2024-003",
+    title: "PETRONAS Digital Workspace",
+    type: "Infrastructure",
+    landscape: "Enterprise Cloud",
+    division: "Corporate Functions",
+    status: "Approved",
+    approvedDate: "2024-01-18",
+    author: "Maria Santos",
+    description:
+      "Unified digital workspace with collaboration tools, document management, and communication",
+    version: "1.2",
+    childCount: 3,
+  },
+  {
+    id: "HLD-2024-012",
+    parentId: "PARENT-2024-012",
+    title: "Retail Station Management System",
+    type: "ERP",
+    landscape: "On-Premise",
+    division: "Retail Division",
+    status: "Approved",
+    approvedDate: "2024-02-28",
+    author: "James Lee",
+    description:
+      "Comprehensive retail station management including POS, inventory, and loyalty programs",
+    version: "3.0",
+    childCount: 1,
+  },
+];
+
+// Generate unique parent ID (FR-05)
+function generateParentId() {
+  const year = new Date().getFullYear();
+  const seq = Date.now().toString().slice(-6);
+  return "PARENT-" + year + "-" + seq;
+}
+
+// Search approved parent HLDs (FR-06)
+function searchParentHLDs(query) {
+  if (!query || query.length < 2) return [];
+  const term = query.toLowerCase();
+  return approvedParentHLDs
+    .filter(
+      (hld) =>
+        hld.title.toLowerCase().includes(term) ||
+        hld.id.toLowerCase().includes(term) ||
+        hld.parentId.toLowerCase().includes(term) ||
+        hld.division.toLowerCase().includes(term) ||
+        hld.type.toLowerCase().includes(term) ||
+        hld.description.toLowerCase().includes(term),
+    )
+    .slice(0, 5);
+}

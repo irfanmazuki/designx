@@ -156,3 +156,22 @@ DesignX is an AI-powered PETRONAS internal portal for High-Level Design (HLD) re
 - **Demo Overlays**: Educational popups showing what full system capabilities would include
 
 The prototype now provides a more realistic multi-page experience that better demonstrates the actual user journey from dashboard overview to detailed HLD creation.
+
+## FR-05/06/07 Implementation Complete
+
+### Files Modified
+
+- `create-hld.html` — Rebuilt with proper parent-child HLD sections
+- `create-hld.js` — Complete rewrite with all methods inside the class
+- `data.js` — Added 6 approved parent HLDs, generateParentId(), searchParentHLDs()
+- `style.css` — Added styles for all new components
+
+### Working Features
+
+- Selecting "New Development" shows auto-generated parent ID with lineage diagram
+- Selecting "Enhancement" or "Rollout" shows searchable parent HLD field
+- Real-time search across title, ID, division, type, and description
+- Selected parent displays full details with relationship preview
+- Form validation blocks submission without parent selection for Enhancement/Rollout
+- AI suggestions update contextually based on workload type
+- All existing functionality (TOE method selection, form validation, demo overlays) preserved
