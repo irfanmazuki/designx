@@ -1,0 +1,153 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>DesignX - PETRONAS Architecture Portal</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <!-- Header -->
+    <header class="header">
+      <div class="header-content">
+        <div class="logo">
+          <svg viewBox="0 0 220 84.1" class="petronas-logo">
+            <g>
+              <path
+                fill="#fff"
+                d="M29.3,84.1c-5.3,0-10.5-1.4-15.1-4.2C5.3,74.5,0,65.1,0,54.8C0,49.6,1.4,44.5,4,40l0,0c0.3-0.6,2.5-4.3,18.1-31.4c3.8-6.5,7.1-8.4,15.7-8.6h0.1h33.9L51.7,34.9l2.7,4.7c2.7,4.6,4.2,9.8,4.2,15.1C58.6,70.9,45.4,84.1,29.3,84.1z"
+              />
+              <path
+                fill="#00A19C"
+                d="M43.7,54.8c0,8-6.5,14.4-14.4,14.4c-8,0-14.4-6.5-14.4-14.4c0-8,6.5-14.4,14.4-14.4C37.3,40.4,43.7,46.8,43.7,54.8"
+              />
+              <g>
+                <path
+                  fill="#fff"
+                  d="M74.1,51.2c0-1.4,0-4.4,0-4.6c0-0.2,0.2-0.5,0.4-0.6c0.1,0,0.2,0,0.3,0c0.7,0,1.3,0,2,0c1.4,0,2.7-0.1,4-0.6c1.4-0.5,2.6-1.3,3.3-2.6c0.8-1.2,1-2.7,0.9-4.1c-0.1-1.1-0.4-2.1-1-3c-1.3-1.9-3.5-2.7-5.7-2.8c-0.3,0-0.6,0-0.9,0c-0.9,0-1.7,0-2.6,0c-1.2,0-2.4,0-3.6,0c-0.9,0-2.3,0-2.3,1.2c0,0.6,0,1.2,0,1.8v15.3L74.1,51.2z"
+                />
+              </g>
+            </g>
+          </svg>
+          <span class="brand-text">DesignX</span>
+        </div>
+        <nav class="nav">
+          <a href="#dashboard" class="nav-link active">Dashboard</a>
+          <a href="create-hld.html" class="nav-link">Create HLD</a>
+          <a href="#review" class="nav-link">Review Queue</a>
+          <a href="#ai-assistant" class="nav-link">AI Assistant</a>
+        </nav>
+        <div class="user-info">
+          <span class="user-name">John Architect</span>
+          <div class="user-avatar">JA</div>
+        </div>
+      </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="main-content">
+      <!-- Dashboard View -->
+      <div id="dashboard-view" class="view active">
+        <div class="dashboard-header">
+          <h1>Architecture Governance Dashboard</h1>
+          <p class="subtitle">AI-powered HLD management and TOE authoring</p>
+        </div>
+      </div>
+    </main>
+  </body>
+</html>
+            <!-- Status Cards -->
+            <div class="status-grid">
+                <div class="status-card">
+                    <div class="status-icon submitted"></div>
+                    <div class="status-info">
+                        <h3>12</h3>
+                        <p>Submitted</p>
+                    </div>
+                </div>
+                <div class="status-card">
+                    <div class="status-icon in-review"></div>
+                    <div class="status-info">
+                        <h3>8</h3>
+                        <p>In Review</p>
+                    </div>
+                </div>
+                <div class="status-card">
+                    <div class="status-icon approved"></div>
+                    <div class="status-info">
+                        <h3>24</h3>
+                        <p>Approved</p>
+                    </div>
+                </div>
+                <div class="status-card risk-highlight">
+                    <div class="status-icon high-risk"></div>
+                    <div class="status-info">
+                        <h3>3</h3>
+                        <p>High Risk Flags</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Recent HLD Requests -->
+            <div class="section">
+                <h2>Recent HLD Requests</h2>
+                <div class="hld-list">
+                    <div class="hld-item" data-id="1">
+                        <div class="hld-info">
+                            <h3>Customer Portal Enhancement</h3>
+                            <p>ERP Enhancement • Enterprise Cloud • Retail Division</p>
+                            <div class="risk-badges">
+                                <span class="risk-badge high">Security Risk</span>
+                                <span class="risk-badge medium">Data Risk</span>
+                            </div>
+                        </div>
+                        <div class="hld-status">
+                            <span class="status-badge in-review">In Review</span>
+                            <button class="btn-secondary" onclick="viewHLD(1)">View Details</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Review Queue View -->
+        <div id="review-view" class="view">
+            <div class="review-header">
+                <h1>Review Queue</h1>
+                <div class="filter-bar">
+                    <select class="filter-select">
+                        <option>All Risk Levels</option>
+                        <option>High Risk Only</option>
+                        <option>Medium Risk</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+
+        <!-- AI Assistant View -->
+        <div id="ai-view" class="view">
+            <div class="ai-header">
+                <h1>AI Assistant</h1>
+                <p>Ask questions about PETRONAS architecture standards and approved HLDs</p>
+            </div>
+            <div class="chat-container">
+                <div class="chat-messages" id="chat-messages">
+                    <div class="message ai-message">
+                        <div class="message-avatar">🤖</div>
+                        <div class="message-content">
+                            Hello! I can help you with PETRONAS architecture standards, TOE guidelines, and information from approved HLDs. What would you like to know?
+                        </div>
+                    </div>
+                </div>
+                <div class="chat-input">
+                    <input type="text" id="chat-input" placeholder="Ask about architecture standards, security requirements...">
+                    <button onclick="sendMessage()">Send</button>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script src="data.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>
